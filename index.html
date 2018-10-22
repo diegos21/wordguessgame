@@ -10,17 +10,220 @@
 
    <div class="container">
 
-        <div class="row">
-            <div class="col-md-12">
-                <h1>About me</h1>
-                <hr style="height:1px;border:none;color:#333;background-color:#333;" />
-            </div>
-        </div>        
-        
+		<div class="d-flex flex-row justify-content-center">
+		  	<div class="p-2"><h1>DISCOVERY</h1></div>
+		</div>
+
+		<div class="d-flex  justify-content-between">
+
+			  <div class="p-2">
+			  		<h2>Video de canción</h2>
+			  		<audio id="myAudio1" src="http://retrojamz.com/wp-content/uploads/2018/01/Daft-Punk-One-More-Time-_-RetroJamz.com_.mp3"></audio>
+			  		<audio id="myAudio2" src="https://p2.soundike.com/ow_7-0E6s_vGVCT8MF5oTg/1540192909/0956284.mp3"></audio>
+			  </div>
+
+			  <div class="p-2">
+			  		<h2>PRESS ANY KEY TO GET STARTED!</h2>
+			  		<p id="wins"></p>
+			  		<p id="vidas"></p>
+			  		<p id="palabras"></p>
+			  </div>
+		
+		</div>
+	</div>
+	<script type="text/javascript">
+		var cancion1 = ["o","n","e","m","o","r","e","t","i","m","e"];
+		var cancionSOL = ["_","_","_","_","_","_","_","_","_","_","_"];
+		var x;
+		var vidas = 0;
+		var wins = 0;
+		var cont2 = 0;
+		var cont3 = 0;
+		var cont4 = 0;
+		var cont5 = 0;
+		var userInput;
+		var DISCOVERY = {
+				artista: "daft punk",
+				
+
+
+
+			winspag: function() {
+				document.querySelector("#wins").innerHTML = "Wins: " + wins;
+			},
+
+			vidaspag: function() {
+				document.querySelector("#vidas").innerHTML = "Vidas: " + vidas;
+			},
+
+			palabraspag: function() {
+				document.getElementById("palabras").innerHTML = cancionSOL[0]+" "+cancionSOL[1]+" "+cancionSOL[2]+" "+cancionSOL[3]+" "+cancionSOL[4]+" "+cancionSOL[5]+" "+cancionSOL[6]+" "+cancionSOL[7]+" "+cancionSOL[8]+" "+cancionSOL[9]+" "+cancionSOL[10];
+			},
+
+			lobby: function() {
+	        	console.log("break");
+
+	        },
+
+
+	        uno: function() {	        	
+	        	console.log("hey");
+	        	vidas = 10;
+	        	document.getElementById('myAudio1').play();
+	        	
+
+	        	document.onkeyup = function(event) {
+	        		userInput = event.key.toLowerCase();       		
+
+
+	        		if (userInput === "o" && cont2 === 0) {
+	        			cont2++;
+	        			cancionSOL[0] = "o";
+	        			DISCOVERY.palabraspag();	        			
+	        		}
+
+	        		else if (userInput === "o" && cont2 === 1) {
+	        			cont2++;
+	        			cancionSOL[4] = "o";
+	        			DISCOVERY.palabraspag();
+	        		}
+
+	        		else if (userInput === "n") {
+	        			cancionSOL[1] = "n";
+	        			DISCOVERY.palabraspag();
+	        		}
+
+	        		else if (userInput === "e" && cont3 === 0) {
+	        			cont3++;
+	        			cancionSOL[2] = "e";
+	        			DISCOVERY.palabraspag();	        			
+	        		}
+
+	        		else if (userInput === "e" && cont3 === 1) {
+	        			cont3++;
+	        			cancionSOL[6] = "e";
+	        			DISCOVERY.palabraspag();
+	        		}
+
+	        		else if (userInput === "e" && cont3 === 2) {
+	        			cont3++;
+	        			cancionSOL[10] = "e";
+	        			DISCOVERY.palabraspag();
+	        		}
+
+	        		else if (userInput === "m" && cont4 === 0) {
+	        			cont4++;
+	        			cancionSOL[3] = "m";
+	        			DISCOVERY.palabraspag();
+	        		}
+
+	        		else if (userInput === "m" && cont4 === 1) {
+	        			cont4++;
+	        			cancionSOL[9] = "m";
+	        			DISCOVERY.palabraspag();
+	        		}
+
+	        		else if (userInput === "r") {
+	        			cancionSOL[5] = "r";
+	        			DISCOVERY.palabraspag();
+	        		}
+
+	        		else if (userInput === "t") {
+	        			cancionSOL[7] = "t";
+	        			DISCOVERY.palabraspag();
+	        		}
+
+	        		else if (userInput === "i") {
+	        			cancionSOL[8] = "i";
+	        			DISCOVERY.palabraspag();
+	        		}
+	       			
+	       			else if(cancionSOL.length == 11 && cont3 === 3) {
+	       				cont3++;
+	       				DISCOVERY.wins = 1;
+	       				DISCOVERY.winspag();
+	       				DISCOVERY.dos();
+	       			}
+	       			else if (vidas > 0) {
+	       				vidas = vidas -1;
+	       				console.log(vidas);
+	       				DISCOVERY.vidaspag();
+
+	       			}
+
+	       			else if (vidas == 0) {     //COMO LO FORMATEO Y ME SALGO?
+	       				alert("game over");
+	       				DISCOVERY.lobby();
+	       			}
+
+
+
+
+
+	       			
+
+	        	}	        	
+
+	        },
+
+
+
+	        dos: function() {
+	        	document.getElementById('myAudio2').play();
+	        	console.log("holados");
+
+	        },
+
+	       
+
+			
+		};
+
+			var cont1 = 0;
+			 	document.onkeyup = function(event) {
+			 		cont1 = cont1 +1;
+
+				 	if (cont1 == 1) {
+				 		DISCOVERY.uno();
+				 		DISCOVERY.winspag();
+				 		DISCOVERY.vidaspag();
+				 	}
+
+				 	
+
+			};
+
+			
+			
+				
+			 
+			 
+			
+			 
+
+		
+
+
+		
+
+		
+
+
+
+		
+
+
+		
+		
+
+	</script>
+
+
+
+
        
         
 
-   </div>
   
 </body>
     
