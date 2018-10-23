@@ -20,6 +20,7 @@
 			  		<h2>Video de canción</h2>
 			  		<audio id="myAudio1" src="http://retrojamz.com/wp-content/uploads/2018/01/Daft-Punk-One-More-Time-_-RetroJamz.com_.mp3"></audio>
 			  		<audio id="myAudio2" src="https://p2.soundike.com/ow_7-0E6s_vGVCT8MF5oTg/1540192909/0956284.mp3"></audio>
+			  		<audio id="myAudio3" src="https://p2.soundike.com/20ReD4hd4xF7cz2MHOQNJQ/1540343369/0956286.mp3"></audio>
 			  </div>
 
 			  <div class="p-2">
@@ -27,9 +28,13 @@
 			  		<p id="wins"></p>
 			  		<p id="palabras"></p>
 			  		<p id="palabras2"></p>
+			  		<p id="palabras3"></p>
 			  		<p id="vidas"></p>
 			  		<p id="vidas2"></p>
+			  		<p id="vidas3"></p>
 			  		<p id="letrascorrectas"></p>
+			  		<p id="letrascorrectas2"></p>
+			  		<p id="letrascorrectas3"></p>
 			  		
 			  </div>
 		
@@ -38,10 +43,14 @@
 	<script type="text/javascript">
 		var cancion1 = ["o","n","e","m","o","r","e","t","i","m","e"];
 		var cancionSOL = ["_","_","_","_","_","_","_","_","_","_","_"];
+		var cancion2 = ["a","e","r","o","d","y","n","a","m","i","c"];
 		var cancionSOL2 = ["_","_","_","_","_","_","_","_","_","_","_"];
+		var cancion3 = ["d","i","g","i","t","a","l","l","o","v","e"];
+		var cancionSOL3 = ["_","_","_","_","_","_","_","_","_","_","_"];
 		
 		var x1;
 		var x2;
+		var x3;
 		var layout = {
 			vidas: 10,
 			wins: 0,
@@ -61,14 +70,27 @@
 			},
 
 			vidaspag2: function() {
-				
-					document.querySelector("#vidas2").innerHTML = "Vidas: " + this.vidas;
+
+					
+					document.querySelector("#vidas2").innerHTML = "Vidas: " + this.vidas ;
 					this.vidas = this.vidas -1;
 					x2 = this.vidas;
 					return x2;			
 				
 							
 			},
+
+			vidaspag3: function() {
+
+					
+					document.querySelector("#vidas3").innerHTML = "Vidas: " + this.vidas ;
+					this.vidas = this.vidas -1;
+					x3 = this.vidas;
+					return x3;			
+				
+							
+			},
+
 
 			palabraspag: function() {					
 
@@ -85,8 +107,23 @@
 				
 			},
 
+			palabraspag3: function() {								
+					
+
+					document.getElementById("palabras3").innerHTML ="current word: "+ cancionSOL3[0]+" "+cancionSOL3[1]+" "+cancionSOL3[2]+" "+cancionSOL3[3]+" "+cancionSOL3[4]+" "+cancionSOL3[5]+" "+cancionSOL3[6]+" "+cancionSOL3[7]+" "+cancionSOL3[8]+" "+cancionSOL3[9]+" "+cancionSOL3[10];
+				
+			},
+
 			letrascorrectaspag: function() {
 				document.getElementById("letrascorrectas").innerHTML ="letras correctas: "+ cancionSOL[2]+" "+cancionSOL[3]+" "+cancionSOL[1]+" "+cancionSOL[5]+" "+cancionSOL[4]+" "+cancionSOL[7]+" "+cancionSOL[6]+" "+cancionSOL[9]+" "+cancionSOL[8]+" "+cancionSOL[10]+" "+cancionSOL[0];
+			},
+
+			letrascorrectaspag2: function() {
+				document.getElementById("letrascorrectas2").innerHTML ="letras correctas: "+ cancionSOL2[2]+" "+cancionSOL2[3]+" "+cancionSOL2[1]+" "+cancionSOL2[5]+" "+cancionSOL2[4]+" "+cancionSOL2[7]+" "+cancionSOL2[6]+" "+cancionSOL2[9]+" "+cancionSOL2[8]+" "+cancionSOL2[10]+" "+cancionSOL2[0];
+			},
+
+			letrascorrectaspag3: function() {
+				document.getElementById("letrascorrectas3").innerHTML ="letras correctas: "+ cancionSOL3[2]+" "+cancionSOL3[3]+" "+cancionSOL3[1]+" "+cancionSOL3[5]+" "+cancionSOL3[4]+" "+cancionSOL3[7]+" "+cancionSOL3[6]+" "+cancionSOL3[9]+" "+cancionSOL3[8]+" "+cancionSOL3[10]+" "+cancionSOL3[0];
 			},
 
 
@@ -98,6 +135,9 @@
 				else if (x == 2) {
 					document.getElementById('myAudio2').play();
 				}
+				else if (x == 3) {
+					document.getElementById('myAudio3').play()
+				}
 			},		       
 	    };
 
@@ -107,6 +147,8 @@
 	  	layout.letrascorrectaspag();
 
 	  	var userInput;
+	  	var userInput2;
+	  	var userInput3;
 	  	
 
 
@@ -122,7 +164,7 @@
 			            layout.winspag(0);
 			            layout.palabraspag(1);			            
 			            
-			            	
+			            layout.vidas = 10;	
 
 			            let cont0 = 0;
 			            let cont1 = 0;
@@ -130,12 +172,12 @@
 			            let cont3 = 0;
 			            let cont4 = 0;
 			            let cont5 = 0;
-			            let cont6 = 0;           
+			            let cont6 = 0; 			                      
 
 
 			            document.onkeyup = function(event) {
 			            	userInput = event.key.toLowerCase(); 
-			            	console.log(userInput);
+			            	//console.log(userInput);
 
 			            	if (userInput === "o" && cont0 === 0) {
 			            		cont0++;			            		
@@ -214,11 +256,13 @@
 				                layout.letrascorrectaspag();
 				            }
 
-				            else if (x1 === 0) {				            	
+				            else if (x1 === 0) {
+				            	layout.vidas = 10;				            	
 				            	layout.vidaspag();
 				            	cancionSOL = ["_","_","_","_","_","_","_","_","_","_","_"];				            	
-				            	layout.palabraspag(1);
+				            	layout.palabraspag();
 				                layout.letrascorrectaspag();
+
 				                juego.uno(1); 
 
 				            }
@@ -232,14 +276,18 @@
 
 				                document.getElementById("palabras").style.display = "none";
 				                document.getElementById("vidas").style.display = "none";
+				                document.getElementById("letrascorrectas").style.display = "none";
+				                document.getElementById('myAudio1').pause();
 
 
+
+				                layout.vidas = 10;
 				                juego.uno(2); 
 
 				            }
 
 				            else {
-				            	layout.vidaspag(1);
+				            	layout.vidaspag();
 				            }
 
 
@@ -247,12 +295,366 @@
 
 			            break;
 			        case 2:
-			        	layout.palabraspag2(2);
+			        	layout.palabraspag2();
 			        	layout.vidaspag2();
-			        	console.log("holis");
-			            
+			        	layout.letrascorrectaspag2();
+			        	layout.canciones(2);
+
+
+
+			        	let cont7 = 0;
+			        	let cont8 = 0;
+			        	let cont9 = 0;
+			        	let cont10 = 0;
+			        	let cont11 = 0;
+			        	let cont12 = 0;
+			        	let cont13 = 0;
+			        	let cont14 = 0;
+			        	let cont15 = 0;
+			        	let cont16 = 0;
+
+			        	
+
+			        	document.onkeyup = function(event) {
+			        		userInput2 = event.key.toLowerCase();
+			        		//console.log(userInput2);
+
+			        		if (userInput2 === "a" && cont7 === 0){
+			        			cont7++;
+			        			cancionSOL2[0] = "a";
+			        			layout.palabraspag2();
+			        			layout.letrascorrectaspag2();
+			        		}
+
+			        		else if (userInput2 === "e" && cont8 === 0){
+			        			cont8++;
+			        			cancionSOL2[1] = "e";
+			        			layout.palabraspag2();
+			        			layout.letrascorrectaspag2();
+			        		}
+
+			        		else if (userInput2 === "r" && cont9 === 0){
+			        			cont9++;
+			        			cancionSOL2[2] = "r";
+			        			layout.palabraspag2();
+			        			layout.letrascorrectaspag2();
+			        		}
+
+			        		else if (userInput2 === "o" && cont10 === 0){
+			        			cont10++;
+			        			cancionSOL2[3] = "o";
+			        			layout.palabraspag2();
+			        			layout.letrascorrectaspag2();
+			        		}
+
+			        		else if (userInput2 === "d" && cont11 === 0){
+			        			cont11++;
+			        			cancionSOL2[4] = "d";
+			        			layout.palabraspag2();
+			        			layout.letrascorrectaspag2();
+			        		}
+
+			        		else if (userInput2 === "y" && cont12 === 0){
+			        			cont12++;
+			        			cancionSOL2[5] = "y";
+			        			layout.palabraspag2();
+			        			layout.letrascorrectaspag2();
+			        		}
+
+			        		else if (userInput2 === "n" && cont13 === 0){
+			        			cont13++;
+			        			cancionSOL2[6] = "n";
+			        			layout.palabraspag2();
+			        			layout.letrascorrectaspag2();
+			        		}
+
+			        		else if (userInput2 === "a" && cont7 === 1){
+			        			cont7++;
+			        			cancionSOL2[7] = "a";
+			        			layout.palabraspag2();
+			        			layout.letrascorrectaspag2();
+			        		}
+
+			        		else if (userInput2 === "m" && cont14 === 0){
+			        			cont14++;
+			        			cancionSOL2[8] = "m";
+			        			layout.palabraspag2();
+			        			layout.letrascorrectaspag2();
+			        		}
+
+			        		else if (userInput2 === "i" && cont15 === 0){
+			        			cont15++;
+			        			cancionSOL2[9] = "i";
+			        			layout.palabraspag2();
+			        			layout.letrascorrectaspag2();
+			        		}
+
+			        		else if (userInput2 === "c" && cont16 === 0){
+			        			cont16++;
+			        			cancionSOL2[10] = "c";
+			        			layout.palabraspag2();
+			        			layout.letrascorrectaspag2();
+			        		}
+
+			        		else if ( x2 === 0) {
+			        			//layout.vidaspag2();
+			        			cancionSOL2 = ["_","_","_","_","_","_","_","_","_","_","_"];
+			        			layout.palabraspag2();
+			        			layout.letrascorrectaspag2();
+			        			layout.vidas =10;
+			        			juego.uno(2);			        			
+			        		}
+
+			        		else if ( arraysEqual(cancionSOL2, cancion2) == true ){
+			        			cancionSOL2 = ["_","_","_","_","_","_","_","_","_","_","_"];
+			        			layout.palabraspag2();
+			        			layout.letrascorrectaspag2();
+			        			layout.wins = layout.wins +1;
+			        			layout.winspag();
+			        			
+
+			        			document.getElementById("palabras2").style.display = "none";
+				                document.getElementById("vidas2").style.display = "none";
+				                document.getElementById("letrascorrectas2").style.display = "none";
+				                document.getElementById('myAudio2').pause();
+
+
+				                layout.vidas = 10;
+			        			juego.uno(3);
+			        		}
+
+			        		else {
+			        			layout.vidaspag2();
+			        		}
+
+
+
+
+
+
+			        	}
+
+			        	
+			        	
+
+
+
+
+			        	
+			        	
+
+			        				            
 			            break;
-			        
+
+			            case 3:
+			            	layout.canciones(3);
+			            	layout.vidaspag3();
+			            	layout.letrascorrectaspag3();
+			            	layout.palabraspag3();
+
+
+			            	let cont17 = 0;
+				        	let cont18 = 0;
+				        	let cont19 = 0;
+				        	let cont20 = 0;
+				        	let cont21 = 0;
+				        	let cont22 = 0;
+				        	let cont23 = 0;
+				        	let cont24 = 0;
+				        	let cont25 = 0;
+				        	let cont26 = 0;
+
+				        	document.onkeyup = function(event) {
+				        		userInput3 = event.key.toLowerCase();
+				        		console.log(userInput3);
+
+
+				        		if (userInput3 === "d" && cont17 === 0){
+				        			cont17++;
+				        			cancionSOL3[0] = "d";
+				        			layout.palabraspag3();
+				        			layout.letrascorrectaspag3();
+					        	}
+
+				        		else if (userInput3 === "i" && cont18 === 0){
+				        			cont18++;
+				        			cancionSOL3[1] = "i";
+				        			layout.palabraspag3();
+				        			layout.letrascorrectaspag3();
+				        		}
+
+				        		else if (userInput3 === "g" && cont19 === 0){
+				        			cont19++;
+				        			cancionSOL3[2] = "g";
+				        			layout.palabraspag3();
+				        			layout.letrascorrectaspag3();
+				        		}
+
+				        		else if (userInput3 === "i" && cont18 === 1){
+				        			cont18++;
+				        			cancionSOL3[3] = "i";
+				        			layout.palabraspag3();
+				        			layout.letrascorrectaspag3();
+				        		}
+
+				        		else if (userInput3 === "t" && cont20 === 0){
+				        			cont20++;
+				        			cancionSOL3[4] = "t";
+				        			layout.palabraspag3();
+				        			layout.letrascorrectaspag3();
+				        		}
+
+				        		else if (userInput3 === "a" && cont21 === 0){
+				        			cont21++;
+				        			cancionSOL3[5] = "a";
+				        			layout.palabraspag3();
+				        			layout.letrascorrectaspag3();
+				        		}
+
+				        		else if (userInput3 === "l" && cont22 === 0){
+				        			cont22++;
+				        			cancionSOL3[6] = "l";
+				        			layout.palabraspag3();
+				        			layout.letrascorrectaspag3();
+				        		}
+
+				        		else if (userInput3 === "l" && cont22 === 1){
+				        			cont22++;
+				        			cancionSOL3[7] = "l";
+				        			layout.palabraspag3();
+				        			layout.letrascorrectaspag3();
+				        		}
+
+				        		else if (userInput3 === "o" && cont23 === 0){
+				        			cont23++;
+				        			cancionSOL3[8] = "o";
+				        			layout.palabraspag3();
+				        			layout.letrascorrectaspag3();
+				        		}
+
+				        		else if (userInput3 === "v" && cont24 === 0){
+				        			cont23++;
+				        			cancionSOL3[9] = "v";
+				        			layout.palabraspag3();
+				        			layout.letrascorrectaspag3();
+				        		}
+
+				        		else if (userInput3 === "e" && cont25 === 0){
+				        			cont24++;
+				        			cancionSOL3[10] = "e";
+				        			layout.palabraspag3();
+				        			layout.letrascorrectaspag3();
+				        		}
+
+				        		else if ( x3 === 0) {				        			
+				        			cancionSOL3 = ["_","_","_","_","_","_","_","_","_","_","_"];
+				        			layout.palabraspag3();
+				        			layout.letrascorrectaspag3();
+				        			layout.vidas =10;
+				        			juego.uno(3);			        			
+				        		}
+
+				        		else if ( arraysEqual(cancionSOL3, cancion3) == true ){
+				        			cancionSOL3 = ["_","_","_","_","_","_","_","_","_","_","_"];
+				        			layout.palabraspag3();
+				        			layout.letrascorrectaspag3();
+				        			layout.wins = layout.wins +1;
+				        			layout.winspag();
+				        			
+
+				        			document.getElementById("palabras3").style.display = "none";
+					                document.getElementById("vidas3").style.display = "none";
+					                document.getElementById("letrascorrectas3").style.display = "none";
+					                document.getElementById('myAudio3').pause();
+
+
+					                layout.vidas = 10;
+				        			juego.uno(4);
+				        		}
+
+
+				        		else {
+				        			layout.vidaspag3();
+				        		}
+
+
+
+
+				        	}
+
+			            	
+				        	
+			            
+
+			            break;
+
+			            case 4:	            	
+		            					        	
+			            
+
+			            break;
+
+			            case 5:	            	
+		            					        	
+			            
+
+			            break;
+
+			            case 6:	            	
+		            					        	
+			            
+
+			            break;
+
+			            case 7:	            	
+		            					        	
+			            
+
+			            break;
+
+			            case 8:	            	
+		            					        	
+			            
+
+			            break;
+
+			            case 9:	            	
+		            					        	
+			            
+
+			            break;
+
+			            case 10:	            	
+		            					        	
+			            
+
+			            break;
+
+			            case 11:	            	
+		            					        	
+			            
+
+			            break;
+
+			            case 12:	            	
+		            					        	
+			            
+
+			            break;
+
+			            case 13:	            	
+		            					        	
+			            
+
+			            break;
+
+			            case 14:	            	
+		            					        	
+			            
+
+			            break;
+			        	
+
 			            
 			    }
 	  		},
