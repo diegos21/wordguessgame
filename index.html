@@ -25,8 +25,12 @@
 			  <div class="p-2">
 			  		<h2>PRESS ANY KEY TO GET STARTED!</h2>
 			  		<p id="wins"></p>
-			  		<p id="vidas"></p>
 			  		<p id="palabras"></p>
+			  		<p id="palabras2"></p>
+			  		<p id="vidas"></p>
+			  		<p id="vidas2"></p>
+			  		<p id="letrascorrectas"></p>
+			  		
 			  </div>
 		
 		</div>
@@ -34,187 +38,266 @@
 	<script type="text/javascript">
 		var cancion1 = ["o","n","e","m","o","r","e","t","i","m","e"];
 		var cancionSOL = ["_","_","_","_","_","_","_","_","_","_","_"];
-		var x;
-		var vidas = 0;
-		var wins = 0;
-		var cont2 = 0;
-		var cont3 = 0;
-		var cont4 = 0;
-		var cont5 = 0;
-		var userInput;
-		var DISCOVERY = {
-				artista: "daft punk",
-				
-
-
+		var cancionSOL2 = ["_","_","_","_","_","_","_","_","_","_","_"];
+		
+		var x1;
+		var x2;
+		var layout = {
+			vidas: 10,
+			wins: 0,
 
 			winspag: function() {
-				document.querySelector("#wins").innerHTML = "Wins: " + wins;
+				document.querySelector("#wins").innerHTML = "Wins: " + this.wins;
 			},
 
 			vidaspag: function() {
-				document.querySelector("#vidas").innerHTML = "Vidas: " + vidas;
-			},
-
-			palabraspag: function() {
-				document.getElementById("palabras").innerHTML = cancionSOL[0]+" "+cancionSOL[1]+" "+cancionSOL[2]+" "+cancionSOL[3]+" "+cancionSOL[4]+" "+cancionSOL[5]+" "+cancionSOL[6]+" "+cancionSOL[7]+" "+cancionSOL[8]+" "+cancionSOL[9]+" "+cancionSOL[10];
-			},
-
-			lobby: function() {
-	        	console.log("break");
-
-	        },
-
-
-	        uno: function() {	        	
-	        	console.log("hey");
-	        	vidas = 10;
-	        	document.getElementById('myAudio1').play();
-	        	
-
-	        	document.onkeyup = function(event) {
-	        		userInput = event.key.toLowerCase();       		
-
-
-	        		if (userInput === "o" && cont2 === 0) {
-	        			cont2++;
-	        			cancionSOL[0] = "o";
-	        			DISCOVERY.palabraspag();	        			
-	        		}
-
-	        		else if (userInput === "o" && cont2 === 1) {
-	        			cont2++;
-	        			cancionSOL[4] = "o";
-	        			DISCOVERY.palabraspag();
-	        		}
-
-	        		else if (userInput === "n") {
-	        			cancionSOL[1] = "n";
-	        			DISCOVERY.palabraspag();
-	        		}
-
-	        		else if (userInput === "e" && cont3 === 0) {
-	        			cont3++;
-	        			cancionSOL[2] = "e";
-	        			DISCOVERY.palabraspag();	        			
-	        		}
-
-	        		else if (userInput === "e" && cont3 === 1) {
-	        			cont3++;
-	        			cancionSOL[6] = "e";
-	        			DISCOVERY.palabraspag();
-	        		}
-
-	        		else if (userInput === "e" && cont3 === 2) {
-	        			cont3++;
-	        			cancionSOL[10] = "e";
-	        			DISCOVERY.palabraspag();
-	        		}
-
-	        		else if (userInput === "m" && cont4 === 0) {
-	        			cont4++;
-	        			cancionSOL[3] = "m";
-	        			DISCOVERY.palabraspag();
-	        		}
-
-	        		else if (userInput === "m" && cont4 === 1) {
-	        			cont4++;
-	        			cancionSOL[9] = "m";
-	        			DISCOVERY.palabraspag();
-	        		}
-
-	        		else if (userInput === "r") {
-	        			cancionSOL[5] = "r";
-	        			DISCOVERY.palabraspag();
-	        		}
-
-	        		else if (userInput === "t") {
-	        			cancionSOL[7] = "t";
-	        			DISCOVERY.palabraspag();
-	        		}
-
-	        		else if (userInput === "i") {
-	        			cancionSOL[8] = "i";
-	        			DISCOVERY.palabraspag();
-	        		}
-	       			
-	       			else if(cancionSOL.length == 11 && cont3 === 3) {
-	       				cont3++;
-	       				DISCOVERY.wins = 1;
-	       				DISCOVERY.winspag();
-	       				DISCOVERY.dos();
-	       			}
-	       			else if (vidas > 0) {
-	       				vidas = vidas -1;
-	       				console.log(vidas);
-	       				DISCOVERY.vidaspag();
-
-	       			}
-
-	       			else if (vidas == 0) {     //COMO LO FORMATEO Y ME SALGO?
-	       				alert("game over");
-	       				DISCOVERY.lobby();
-	       			}
-
-
-
-
-
-	       			
-
-	        	}	        	
-
-	        },
-
-
-
-	        dos: function() {
-	        	document.getElementById('myAudio2').play();
-	        	console.log("holados");
-
-	        },
-
-	       
-
-			
-		};
-
-			var cont1 = 0;
-			 	document.onkeyup = function(event) {
-			 		cont1 = cont1 +1;
-
-				 	if (cont1 == 1) {
-				 		DISCOVERY.uno();
-				 		DISCOVERY.winspag();
-				 		DISCOVERY.vidaspag();
-				 	}
-
-				 	
-
-			};
-
-			
-			
 				
-			 
-			 
-			
-			 
+					document.querySelector("#vidas").innerHTML = "Vidas: " + this.vidas;
+					this.vidas = this.vidas -1;
+					x1 = this.vidas;
+					return x1;			
+				
+							
+			},
+
+			vidaspag2: function() {
+				
+					document.querySelector("#vidas2").innerHTML = "Vidas: " + this.vidas;
+					this.vidas = this.vidas -1;
+					x2 = this.vidas;
+					return x2;			
+				
+							
+			},
+
+			palabraspag: function() {					
+
+
+					document.getElementById("palabras").innerHTML ="current word: "+ cancionSOL[0]+" "+cancionSOL[1]+" "+cancionSOL[2]+" "+cancionSOL[3]+" "+cancionSOL[4]+" "+cancionSOL[5]+" "+cancionSOL[6]+" "+cancionSOL[7]+" "+cancionSOL[8]+" "+cancionSOL[9]+" "+cancionSOL[10];
+						
+
+			},
+
+			palabraspag2: function() {								
+					
+
+					document.getElementById("palabras2").innerHTML ="current word: "+ cancionSOL2[0]+" "+cancionSOL2[1]+" "+cancionSOL2[2]+" "+cancionSOL2[3]+" "+cancionSOL2[4]+" "+cancionSOL2[5]+" "+cancionSOL2[6]+" "+cancionSOL2[7]+" "+cancionSOL2[8]+" "+cancionSOL2[9]+" "+cancionSOL2[10];
+				
+			},
+
+			letrascorrectaspag: function() {
+				document.getElementById("letrascorrectas").innerHTML ="letras correctas: "+ cancionSOL[2]+" "+cancionSOL[3]+" "+cancionSOL[1]+" "+cancionSOL[5]+" "+cancionSOL[4]+" "+cancionSOL[7]+" "+cancionSOL[6]+" "+cancionSOL[9]+" "+cancionSOL[8]+" "+cancionSOL[10]+" "+cancionSOL[0];
+			},
+
+
+
+			canciones: function(x) {
+				if (x == 1){
+					document.getElementById('myAudio1').play();
+				}
+				else if (x == 2) {
+					document.getElementById('myAudio2').play();
+				}
+			},		       
+	    };
+
+	  	layout.winspag();
+	  	layout.palabraspag();
+	  	layout.vidaspag();
+	  	layout.letrascorrectaspag();
+
+	  	var userInput;
+	  	
+
 
 		
 
+	  	
+	  	var juego = {
+	  		uno: function(x){
+	  			switch(x) {
 
+			        case 1:
+			        	layout.canciones(1);
+			            layout.winspag(0);
+			            layout.palabraspag(1);			            
+			            
+			            	
+
+			            let cont0 = 0;
+			            let cont1 = 0;
+			            let cont2 = 0; 
+			            let cont3 = 0;
+			            let cont4 = 0;
+			            let cont5 = 0;
+			            let cont6 = 0;           
+
+
+			            document.onkeyup = function(event) {
+			            	userInput = event.key.toLowerCase(); 
+			            	console.log(userInput);
+
+			            	if (userInput === "o" && cont0 === 0) {
+			            		cont0++;			            		
+			            		cancionSOL[0] = "o";
+				                layout.palabraspag(1);
+				                layout.letrascorrectaspag();          
+			            	}
+
+			            	else if (userInput === "o" && cont0 === 1) {
+			            		cont0++;
+				                cancionSOL[4] = "o";
+				                layout.palabraspag(1);
+				                layout.letrascorrectaspag();
+				            }
+
+				            else if (userInput === "n" && cont3 === 0) {
+				            	cont3++;
+				                cancionSOL[1] = "n";
+				                layout.palabraspag(1);
+				                layout.letrascorrectaspag();
+				            }
+
+				             else if (userInput === "e" && cont1 === 0) {
+				             	cont1++;
+				                cancionSOL[2] = "e";
+				                layout.palabraspag(1);
+				                layout.letrascorrectaspag();               
+				            }
+
+				            else if (userInput === "e" && cont1 === 1) {
+				            	cont1++;
+				                cancionSOL[6] = "e";
+				                layout.palabraspag(1);
+				                layout.letrascorrectaspag();
+				            }
+
+				            else if (userInput === "e" && cont1 === 2) {
+				            	cont1++;
+				                cancionSOL[10] = "e";
+				                layout.palabraspag(1);
+				                layout.letrascorrectaspag();
+				            }
+
+				             else if (userInput === "m" && cont2 === 0) {
+				             	cont2++;
+				                cancionSOL[3] = "m";
+				                layout.palabraspag(1);
+				                layout.letrascorrectaspag();
+				            }
+
+				            else if (userInput === "m" && cont2 === 1) {
+				            	cont2++;
+				                cancionSOL[9] = "m";
+				                layout.palabraspag(1);
+				                layout.letrascorrectaspag();
+				            }
+
+				            else if (userInput === "r" && cont4 == 0) {
+				            	cont4++;
+				                cancionSOL[5] = "r";
+				                layout.palabraspag(1);
+				                layout.letrascorrectaspag();
+				            }
+
+				            else if (userInput === "t" && cont5 == 0) {
+				            	cont5++;
+				                cancionSOL[7] = "t";
+				                layout.palabraspag(1);
+				                layout.letrascorrectaspag();
+				            }
+
+				            else if (userInput === "i" && cont6 == 0) {
+				            	cont6++;
+				                cancionSOL[8] = "i";
+				                layout.palabraspag(1);
+				                layout.letrascorrectaspag();
+				            }
+
+				            else if (x1 === 0) {				            	
+				            	layout.vidaspag();
+				            	cancionSOL = ["_","_","_","_","_","_","_","_","_","_","_"];				            	
+				            	layout.palabraspag(1);
+				                layout.letrascorrectaspag();
+				                juego.uno(1); 
+
+				            }
+
+				            else if ( arraysEqual(cancionSOL, cancion1) == true ) {
+				            	cancionSOL = ["_","_","_","_","_","_","_","_","_","_","_"];	
+				            	layout.palabraspag(1);
+				                layout.letrascorrectaspag();
+				                layout.wins = layout.wins +1;
+				                layout.winspag();
+
+				                document.getElementById("palabras").style.display = "none";
+				                document.getElementById("vidas").style.display = "none";
+
+
+				                juego.uno(2); 
+
+				            }
+
+				            else {
+				            	layout.vidaspag(1);
+				            }
+
+
+			            }
+
+			            break;
+			        case 2:
+			        	layout.palabraspag2(2);
+			        	layout.vidaspag2();
+			        	console.log("holis");
+			            
+			            break;
+			        
+			            
+			    }
+	  		},
+	  	}; 
+
+
+	  	function arraysEqual(a, b) {
+		  if (a === b) return true;
+		  if (a == null || b == null) return false;
+		  if (a.length != b.length) return false;
+
+		  // If you don't care about the order of the elements inside
+		  // the array, you should sort both arrays here.
+		  // Please note that calling sort on an array will modify that array.
+		  // you might want to clone your array first.
+
+		  for (var i = 0; i < a.length; ++i) {
+		    if (a[i] !== b[i]) return false;
+		  }
+		  return true;
+		} 	
+
+
+
+	    var something = (function() {
+    		var executed = false;
+    		return function() {
+        		if (!executed) {
+            	executed = true;
+            	juego.uno(1);
+        		}
+    		};
+		})();
+
+
+
+		document.onkeyup = function(event) {  
+			something();
+		}
 		
 
-		
+	  	
 
 
 
-		
-
-
-		
-		
 
 	</script>
 
