@@ -17,7 +17,7 @@
 		<div class="d-flex  justify-content-between">
 
 			  <div class="p-2">
-			  		<h2>Video de canción</h2>
+			  		<img src ="https://media.pitchfork.com/photos/592c55d80c2bba1b7de04681/2:1/w_790/bb089e64.jpg" alt="hidding in plain sight" height="400" width="500"> 
 			  		<audio id="myAudio1" src="http://retrojamz.com/wp-content/uploads/2018/01/Daft-Punk-One-More-Time-_-RetroJamz.com_.mp3"></audio>
 			  		<audio id="myAudio2" src="https://p2.soundike.com/ow_7-0E6s_vGVCT8MF5oTg/1540192909/0956284.mp3"></audio>
 			  		<audio id="myAudio3" src="https://p2.soundike.com/20ReD4hd4xF7cz2MHOQNJQ/1540343369/0956286.mp3"></audio>
@@ -25,16 +25,27 @@
 
 			  <div class="p-2">
 			  		<h2>PRESS ANY KEY TO GET STARTED!</h2>
-			  		<p id="wins"></p>
-			  		<p id="palabras"></p>
-			  		<p id="palabras2"></p>
-			  		<p id="palabras3"></p>
-			  		<p id="vidas"></p>
-			  		<p id="vidas2"></p>
-			  		<p id="vidas3"></p>
-			  		<p id="letrascorrectas"></p>
-			  		<p id="letrascorrectas2"></p>
-			  		<p id="letrascorrectas3"></p>
+			  		<div class="datos">
+				  		<p id="wins"></p>
+				  		<br>
+				  		<p id="palabras"></p>
+				  		<br>
+				  		<p id="palabras2"></p>
+				  		<br>
+				  		<p id="palabras3"></p>
+				  		<br>
+				  		<p id="vidas"></p>
+				  		<br>
+				  		<p id="vidas2"></p>
+				  		<br>
+				  		<p id="vidas3"></p>
+				  		<br>
+				  		<p id="letrascorrectas"></p>
+				  		<br>
+				  		<p id="letrascorrectas2"></p>
+				  		<br>
+				  		<p id="letrascorrectas3"></p>
+				  	</div>
 			  		
 			  </div>
 		
@@ -172,7 +183,9 @@
 			            let cont3 = 0;
 			            let cont4 = 0;
 			            let cont5 = 0;
-			            let cont6 = 0; 			                      
+			            let cont6 = 0; 
+
+
 
 
 			            document.onkeyup = function(event) {
@@ -295,6 +308,10 @@
 
 			            break;
 			        case 2:
+
+			        	document.getElementById("palabras2").style.display = "unset";
+		            	document.getElementById("vidas2").style.display = "unset";
+					    document.getElementById("letrascorrectas2").style.display = "unset";
 			        	layout.palabraspag2();
 			        	layout.vidaspag2();
 			        	layout.letrascorrectaspag2();
@@ -447,6 +464,11 @@
 			            break;
 
 			            case 3:
+
+
+			            	document.getElementById("palabras3").style.display = "unset";
+		            		document.getElementById("vidas3").style.display = "unset";
+					        document.getElementById("letrascorrectas3").style.display = "unset";
 			            	layout.canciones(3);
 			            	layout.vidaspag3();
 			            	layout.letrascorrectaspag3();
@@ -575,6 +597,7 @@
 
 				        		else {
 				        			layout.vidaspag3();
+
 				        		}
 
 
@@ -589,71 +612,17 @@
 			            break;
 
 			            case 4:	            	
-		            					        	
+		            		alert("muchas felicidades!");
+		            		document.getElementById("palabras").style.display = "unset";
+		            		document.getElementById("vidas").style.display = "unset";
+					        document.getElementById("letrascorrectas").style.display = "unset";
+					        
+		            		
+		            		juego.uno(1);		        	
 			            
 
 			            break;
 
-			            case 5:	            	
-		            					        	
-			            
-
-			            break;
-
-			            case 6:	            	
-		            					        	
-			            
-
-			            break;
-
-			            case 7:	            	
-		            					        	
-			            
-
-			            break;
-
-			            case 8:	            	
-		            					        	
-			            
-
-			            break;
-
-			            case 9:	            	
-		            					        	
-			            
-
-			            break;
-
-			            case 10:	            	
-		            					        	
-			            
-
-			            break;
-
-			            case 11:	            	
-		            					        	
-			            
-
-			            break;
-
-			            case 12:	            	
-		            					        	
-			            
-
-			            break;
-
-			            case 13:	            	
-		            					        	
-			            
-
-			            break;
-
-			            case 14:	            	
-		            					        	
-			            
-
-			            break;
-			        	
 
 			            
 			    }
